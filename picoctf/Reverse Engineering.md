@@ -26,10 +26,15 @@ picoCTF{549698}
 ```
 
 ## Concepts learnt:
+
 GDB - GNU debugger - inspect and control program runtime(pause,step,inspect memory,register,disassemble)
+
 EAX register- 32 bit general purpose register - tiny storage - holds return values of function
+
 Disassembling of the program
+
 GDB commands
+
 Identifying type of data
 
 ## Resources:
@@ -56,11 +61,11 @@ picoCTF{00000d2a}
 ```
 
 ## Concepts learnt:
+
 ARM assembly- Programming language for ARM CPUs- low level language that directly controls the CPU.
-ARM assembly  instructions (mov- assign value,add,sub,ldr-load a no. from memory,str- store into memory,bne- jump somwhere if not equal,ret-return from a function,cmp-compare,bne-conditional,bl-branch with link(call a function),bx lr- return from function)
 
-
-
+ARM assembly  instructions (mov- assign value,add,sub,ldr-load a no. from memory,str- store into memory,bne- jump 
+somwhere if not equal,ret-return from a function,cmp-compare,bne-conditional,bl-branch with link(call a function),bx lr- return from function)
 
 ## Resources:
 [general definitions](https://google.com)
