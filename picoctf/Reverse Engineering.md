@@ -71,3 +71,34 @@ somwhere if not equal,ret-return from a function,cmp-compare,bne-conditional,bl-
 [general definitions](https://google.com)
 [assembly tutorial](https://thinkingeek.com/arm-assembler-raspberry-pi-tutorial/)
 
+
+
+***
+# 3. vault-door-3
+
+This vault uses for-loops and byte arrays. The source code for this vault is here: VaultDoor3.java
+
+## Solution:
+The task was basically getting the password by breaking through the JAVA code that is given in the question by logically thinking with reverse engineering.There are two part of the code itself one is main() and checkPassword().  Let's go with main first it removes the picoCTF{ } and gets what is inside the brackets that is given to checkPassword() later on while checking whether the access is granted or not. Now let's talk about checkPassword(), so basically it takes our password and scramble it to compare it with string "jU5t_a_sna_3lpm18gb41_u_4_mfr340" if it matches we win. so firstly the length of the password should be 32 if its not 32 character long then its not the password next we are making an empty array of size 32 to hold letter, then there are four loops each loop puts characters from password to buffer, so loop 1 runs and the first 8 characters ( that are 0-7) are unchanged, loop 2 just assign value in betwwen i=8 and i=15 in reverse order since buffer[i] = password.charAt(23-i) (this for 8 to 15 ), loop 3 takes all the even position number for 16 to 31(i.e 16,18,20,......,28,30) and reverse them by using buffer[i]=password.charAt(46-i) and the last loop Loop 4 takes all the remaining odd values from 16 to 31 and assign it as it is (unchanged). Then we assign the buffer into new string. check whether the string is equal to to the string mentioned above or not if it is then we have our password. TA DA ! we got our password. 
+
+ 
+## Flag:
+
+```
+picoCTF{jU5t_a_s1mpl3_an4gr4m_4_u_1fb380}
+```
+
+## Concepts learnt:
+
+To retrace the code function from the basics itself.
+
+Java Lang Commands - scanner(System.in)(taking input), System.out.print()(reads out the output),if else condition in JAVA, making a character array, running loopps using for command,assigning value to string.
+
+## Resources:
+[general definitions](https://google.com)
+[Tutorial Reference](https://www.w3schools.com/java/)
+[java commands](https://docs.oracle.com/javase/tutorial/)
+
+
+
+***
