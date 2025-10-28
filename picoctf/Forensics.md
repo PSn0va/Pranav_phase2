@@ -56,3 +56,61 @@ Passphrase finding with clues
 ***
 
 
+
+# 2. tunn3l v1s10n
+
+We found this file. Recover the flag.
+
+## Solution:
+
+I think I know by now that I don't likle Forensics domain like how can every medium level problem can be so hard. But I did it anyways and I still don't know nothing about it. First I ran fille command on the file itself it gave me type as data(nothing specific) then I used exiftool command and gave me file details such as dimension and main its format which was bmp then I thought maybe is I change the extension I will be able to open the file itself but how stupid of me, but it was saying something like header is too big or something which I had no clue about, so I googl;ed it instantly luckily I stumbled upon a website which showed me the whole format of bitmap file and I also got to know that we can edit the image configuration by use of hexedit command which I then installed by help of sudo apt install then I ran the command. Guess what I didn't know what to do at all, so I just saw the basic BITMAP file format line by line the first thing I had to check was the header because it was mentioned while opening the file. I noticed at an offset of 14 bytes, InfoHeader begins with 28 00 00 00  but it was BA D0 00 00 which I changed when I opened the file it was showing notaflag{sorry}, at that moment I knew I'm almost done with the challenge. Then I checked it thoroughly and i saw BA D0 00 00 at offset of 10 bytes which meant 53434bytes whch meant that it covers upto 53434 bytes which was large for that much data I changed that to 36 00 00 00 which i generally for the normal size even though the dimension was 1134*306 I thought maybe this is cropped vesion of file then I increased its height by changing 32 01 00 00 to 32 03 00 00 which was at offset of 22 bytes which did show me the flag but not completely thhen I increased it again to 32 04 00 00 which gave me the flag.
+
+```
+cd Downloads/
+file tunn3l_v1s10n 
+exiftool tunn3l_v1s10n
+sudo apt update
+sudo apt install hexedit
+hexedit tunn3l_v1s10n 
+```
+
+
+## Flag:
+
+```
+picoCTF{qu1t3_a_v13w_2020}
+```
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-19-07" src="https://github.com/user-attachments/assets/0131af02-6865-4725-8cc7-65d1416d15ad" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-15-49" src="https://github.com/user-attachments/assets/5416d6b9-d962-4eb6-8221-6c096a63b48c" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-22-23" src="https://github.com/user-attachments/assets/040a263e-952b-4680-8bbb-287b071221fd" />
+<img width="525" height="44" alt="Screenshot From 2025-10-29 02-27-12" src="https://github.com/user-attachments/assets/9019186d-883c-4af8-b45d-a134269833ab" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-47-11" src="https://github.com/user-attachments/assets/1c6722de-f48c-4bda-aef0-72ae9a417a26" />
+<img width="523" height="33" alt="Screenshot From 2025-10-29 02-32-55" src="https://github.com/user-attachments/assets/2ef13a66-8999-4a07-ace1-560800da7838" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-48-49" src="https://github.com/user-attachments/assets/56248146-3ed7-408a-9ca6-fece9688da69" />
+<img width="528" height="29" alt="Screenshot From 2025-10-29 02-36-53" src="https://github.com/user-attachments/assets/41f8c99f-a06d-4ac2-b399-ef0996613abb" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-50-58" src="https://github.com/user-attachments/assets/927f8460-cc19-4a99-808f-55f49645219a" />
+
+## Concepts learnt:
+Analysis of pcapng file format. 
+
+Wireshark working.
+
+More about bitmap files
+
+Steghide commands and working.
+
+Extraction of files via different programs
+ 
+ROT13 Decoding
+
+Passphrase finding with clues
+
+## Resources:
+
+[Basic Definitions](https://google.com)
+[wireshark](https://www.wireshark.org/)
+[steghide](https://www.kali.org/tools/steghide/)
+[more commands](https://steghide.sourceforge.net/)
+[ROT13 decoding](https://rot13.com/)
+
+***
