@@ -91,26 +91,25 @@ picoCTF{qu1t3_a_v13w_2020}
 <img width="1920" height="1080" alt="Screenshot From 2025-10-29 02-50-58" src="https://github.com/user-attachments/assets/927f8460-cc19-4a99-808f-55f49645219a" />
 
 ## Concepts learnt:
-Analysis of pcapng file format. 
+Using ExifTool 
 
-Wireshark working.
+Use of HexEdit
 
 More about bitmap files
 
-Steghide commands and working.
+Hex form of the image itself.
 
-Extraction of files via different programs
+How to make changes in hex form of the file itself.
  
-ROT13 Decoding
+BITMAP image file fpormat
 
-Passphrase finding with clues
+More about dimension and Info regarding file format 
 
 ## Resources:
 
 [Basic Definitions](https://google.com)
-[wireshark](https://www.wireshark.org/)
-[steghide](https://www.kali.org/tools/steghide/)
-[more commands](https://steghide.sourceforge.net/)
-[ROT13 decoding](https://rot13.com/)
+[bmp format](https://www.ece.ualberta.ca/~elliott/ee552/studentAppNotes/2003_w/misc/bmp_file_format/bmp_file_format.htm)
+[Hexedit](https://hexed.it/)
+[Hexedit Info and commands](https://linux.die.net/man/1/hexedit)
 
 ***
