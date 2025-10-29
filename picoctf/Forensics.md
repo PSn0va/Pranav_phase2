@@ -113,3 +113,67 @@ More about dimension and Info regarding file format
 [Hexedit Info and commands](https://linux.die.net/man/1/hexedit)
 
 ***
+
+
+
+# 3. m00nwalk
+Decode this message from the moon.
+
+## Solution:
+
+Either I'm getting the hang for Forensics domain or this challenge was easy, It was like what ever I wanted to do in this challenge came to me on its own. This challenge gave me audio file which was nothing but static voice I guess but then I used the first hint which was How did pictures from the moon landing get sent back to Earth? I just googled it and I got the Apollo 11, Apollo 11 used slow-scan television (TV) incompatible with broadcast TV. The next thing I searched was SSTV I came to know we can transmit picture via sound through this then what the only thing I had to do was decoding it then when I searched I decoding SSTV I stumbled upon tools called qsstv and pavucontrol, that website was the one that guided me through thewhole process of decoding SSTV then I opened qstv buit when ever was trying to open pavucontrol from the same terminal it was not possible so I had to use multiple terminal windows then according to steps on the website I'll have to set up a virtual connection in beteen the computer for connecting Pavucontrol and qsstv I dids set that by pactl commans using pulseaudio.There were settings here and there thatneeded some modifications first Pavucontrol - we had to change qsstv connection to virtual in recordings tab and set input and output dev on qsstv enable auto and Auto slant(still don't know what it does). Then I played the audio using paplay. It started generating the image and in the end we got the whole image on which the flag was written. In the end I searched the CMU mascot I came to know that it was sstv type but qsstv auto detected it so there was no need of it.
+
+```
+sudo apt install qsstv && sudo apt install pavucontrol -y
+qsstv
+qsstv && pauvcontrol
+pavucontrol
+qsstv && pavucontrol
+qsstv
+pavucontrol
+pactl load-module module-null-sink sink_name=virtual-cable
+sudo apt update
+sudo apt install pulseaudio-utils
+pactl load-module module-null-sink sink_name=virtual-cable
+paplay -d virtual-cable message.wav
+cd Downloads/
+paplay -d virtual-cable message.wav
+```
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-06-46" src="https://github.com/user-attachments/assets/7090f946-b14b-4480-8701-98a5b94eab74" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-15-09" src="https://github.com/user-attachments/assets/ea67d62a-2ecf-4406-99b2-3327e3aafe6a" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-18-05" src="https://github.com/user-attachments/assets/97419ce1-51be-451e-92f0-033afa9c909e" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-19-41" src="https://github.com/user-attachments/assets/b3ab7124-ee0f-40b7-bb34-457285126de3" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-23-17" src="https://github.com/user-attachments/assets/ed111d51-1fb2-47b3-92f4-82ea775f9397" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-23-24" src="https://github.com/user-attachments/assets/221af4ef-a71c-41db-ac91-be42cecc5d2d" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-23-32" src="https://github.com/user-attachments/assets/9aa4b816-2e76-4e55-aae1-dd9fb092c28c" />
+<img width="1920" height="1080" alt="Screenshot From 2025-10-29 08-24-05" src="https://github.com/user-attachments/assets/897d9197-c3a4-44a0-ade8-257c2b2b0c9a" />
+
+
+## Flag:
+
+```
+picoCTF{beep_boop_im_in_space}
+```
+
+## Concepts learnt:
+Transfer of images via audio files 
+
+SSTV and Apollo 11
+
+Sattelites mode of transmission
+
+Audio Decoding
+
+Decoding of SSTV
+
+working of qsstv and Pavucontrol
+
+Modes of sstv
+
+## Resources:
+
+[Basic Definitions](https://google.com)
+[Decoding Qsstv](https://charlesreid1.com/wiki/Qsstv#Connecting_audio_out_to_audio_in)
+[PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+
+***
