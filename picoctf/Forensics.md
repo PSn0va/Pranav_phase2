@@ -19,6 +19,8 @@ steghide extract -sf picture1.bmp
 steghide extract -sf picture2.bmp 
 steghide extract -sf picture3.bmp 
 ```
+<img width="1920" height="1080" alt="Screenshot (25)" src="https://github.com/user-attachments/assets/fcbcfe7b-a18b-40a3-83fb-3e676ef6c754" />
+<img width="1920" height="1080" alt="Screenshot (26)" src="https://github.com/user-attachments/assets/38468217-d79a-4d86-bdae-34d524d26f74" />
 <img width="1920" height="1080" alt="Screenshot From 2025-10-28 23-14-53" src="https://github.com/user-attachments/assets/54bb366d-2236-4baf-93bd-77a6d963d0f7" />
 <img width="1920" height="1080" alt="Screenshot From 2025-10-28 23-16-27" src="https://github.com/user-attachments/assets/e2c26ec1-90dd-4d77-be68-5ceae9abd5b4" />
 <img width="1920" height="1080" alt="Screenshot From 2025-10-28 23-26-14" src="https://github.com/user-attachments/assets/47bd2a67-829b-4663-ab0c-02b7e61c84df" />
