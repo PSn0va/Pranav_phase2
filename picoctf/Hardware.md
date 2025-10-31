@@ -76,3 +76,31 @@ Linux & Debugging Concepts
 [Logic2](https://www.saleae.com/support)
 [UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)
 Youtube
+***
+
+
+# 2. Bare Metal Alchemist
+
+> my friend recommended me this anime but i think i've heard a wrong name.
+
+
+## Solution:
+
+```
+
+```
+
+## Flag:
+
+```
+FCCTF{Th1s_1s_som3_s1mpl3_4rdu1no_f1rmw4re}
+```
+
+## Concepts learnt:
+
+
+## Resources:
+[Basic Definition](https://www.google.com/)
+[Logic2](https://www.saleae.com/support)
+[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)
+Youtube
