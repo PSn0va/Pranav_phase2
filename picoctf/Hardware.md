@@ -33,7 +33,7 @@ LOGIC GATES
 
 
 ## Solution:
-
+I just extracted the file but I didn't know what to do with them next I opened up the json file since I couldn't open any of the others, it showed some of the data I didn't know what it was I used AI and and it mentioned UART then i asked him how to dcode the files . It mentioned using Logic 2 and Async analyser to analyse files hidden data that is being sent over UART bus, setting up Logic 2 was a task  too but I did It while searching here there next it wasn't even taking the extracted folder I use zip file and then used Async for channel 3 that was the only one highlighted It gave me a full text in which the flag like text was present and then I did it.
 ```
 chmod +x logic2.AppImage
 chmod +x Logic-2.4.36-linux-x64.AppImage 
@@ -59,5 +59,20 @@ FCSC{b1dee4eeadf6c4e60aeb142b0b486344e64b12b40d1046de95c89ba5e23a9925}
 ```
 
 ## Concepts learnt:
+Understanding File Formats
+
+Extracting and Inspecting Archive Contents
+
+Digital Logic Capture Files
+
+UART (Universal Asynchronous Receiver/Transmitter)
+
+Using Logic Analyzer
+
+Linux & Debugging Concepts
 
 ## Resources:
+[Basic Definition](https://www.google.com/)
+[Logic2](https://www.saleae.com/support)
+[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)
+Youtube
