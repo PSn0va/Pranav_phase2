@@ -79,13 +79,13 @@ Youtube
 ***
 
 
-# 2. Bare Metal Alchemist
+# 3. Bare Metal Alchemist
 
 > my friend recommended me this anime but i think i've heard a wrong name.
 
 
 ## Solution:
-
+I tried to execute it first but it didn't work then I searched how to analyse the file then I cam to know of Radare 2. Then I listed all the functions to look for some sort of main or decrypt_flag kinda function. Shifted to main using s main and I did ran A decompiler but didn't understand even a bit. The orphan loop is where the decryption was happening and 0x68 was the address were the decryption was being stored so tried printing that but failed. Then used psx 44 @ 0x68 which would print 44 bytes of the string. gave the output toapython script and ran that top get the flag.
 ```
 
 ```
@@ -97,10 +97,13 @@ FCCTF{Th1s_1s_som3_s1mpl3_4rdu1no_f1rmw4re}
 ```
 
 ## Concepts learnt:
+Using the radare2 tool
+Xor encryption
+decompilation processes
+python scripting for decompiling
 
 
 ## Resources:
 [Basic Definition](https://www.google.com/)
-[Logic2](https://www.saleae.com/support)
-[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)
+AI 
 Youtube
