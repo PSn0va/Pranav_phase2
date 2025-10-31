@@ -1,6 +1,6 @@
 # 1. Trivial Flag Transfer Protocol
 
-Figure out how they moved the flag.
+> Figure out how they moved the flag.
 
 ## Solution:
 
@@ -61,7 +61,7 @@ Passphrase finding with clues
 
 # 2. tunn3l v1s10n
 
-We found this file. Recover the flag.
+> We found this file. Recover the flag.
 
 ## Solution:
 
@@ -119,7 +119,7 @@ More about dimension and Info regarding file format
 
 
 # 3. m00nwalk
-Decode this message from the moon.
+> Decode this message from the moon.
 
 ## Solution:
 
