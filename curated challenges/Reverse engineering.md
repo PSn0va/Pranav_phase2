@@ -317,15 +317,73 @@ bluestacks
 # 5. Dusty
 
 ## Solution:
+I first checked each file with file and strings to understand what I was dealing with. Being Rust binaries, they were extremely noisy, but using nm -C I quickly spotted that the real logic lived inside a function called shinyclean::main.For dust_noob, I disassembled around that function using objdump -d dust_noob --start-address=0x7b58 --stop-address=0x7c40, and immediately saw a pattern of movb instructions writing hard-coded bytes to the stack. That was a strong sign the flag was stored as an encoded byte array. A few lines below, the binary looped over those bytes and XORed each one with 0x3f. Instead of fighting the Rust runtime to make the program print the decoded value, I just recreated the decoding in Python. After extracting the bytes and XORing each with 0x3f, the output gave me the flag straight away: DawgCTF{FR33_C4R_W45H!}. So the “noob” binary was just a disguised XOR puzzle.For dust_intermediate, the situation was different. Running it normally with some input made it consistently print “Loser! Try again?”, but when I ran it without giving any actual input (EOF), it printed “You win! May you be Rust clean forever!”. Looking at the strings inside (strings -tx dust_intermediate | grep -E "Enter|Loser|You win") and the read logic in the decompiler, it became clear that the “winning” path was actually tied to Rust’s read_line failing. So the trick was not to find a correct phrase, but simply not to supply one at all. This binary didn’t contain any CTF{} style flag — the win message itself was effectively the intended output.The dust_pro binary was the heavyweight of the trio. Again, running strings -tx showed messages like “Enter your ShinyClean code below:” and “Sorry, better luck next time!”, plus a “Congratulations! You win a ” string. Running it with normal input made it parse my answer using parse::<u32>(), so this one clearly expected a numeric code. Decompiling the main function showed that after parsing the integer, the program converted it into four bytes (to_ne_bytes()), then used those bytes to drive a 25-byte state transformation involving XORs and other bitwise operations. At the end of this transformation, it compared the final state to a hidden target to decide whether to print the winning message. Because Rust binaries pull in a lot of hashing and crypto glue code (sha2, digest, etc.), the assembly was extremely noisy. I didn’t fully lift the transformation into a Python script within this session, so I left this one marked as WIP. The structure is fully understood — the challenge is simply to reproduce the bit-twiddling loop and find the unique 32-bit integer that makes the final state match the expected value.
+```
+#!/usr/bin/env python3
 
+# Dusty DSO - dust_noob solver
+# The binary stores an obfuscated flag as 23 bytes on the stack
+# and decodes it by XORing each byte with 0x3f.
+# We just replicate that logic here.
 
+def main():
+    data = [
+        0x7b, 0x5e, 0x48, 0x58, 0x7c, 0x6b, 0x79, 0x44,
+        0x79, 0x6d, 0x0c, 0x0c, 0x60, 0x7c, 0x0b, 0x6d,
+        0x60, 0x68, 0x0b, 0x0a, 0x77, 0x1e, 0x42
+    ]
 
+    flag = ''.join(chr(b ^ 0x3f) for b in data)
+    print(flag)
 
+if __name__ == "__main__":
+    main()
+
+```
+```
+file dust_*
+strings dust_*
+strings -tx dust_* | grep -E "Enter|Win|Lose|Sorry|Congrats"
+nm -C dust_* | grep main
+objdump -d dust_noob --start-address=0x7b58 --stop-address=0x7c40
+objdump -d dust_intermediate --start-address=0xd430 --stop-address=0xd8f0
+objdump -d dust_pro --start-address=0x99d0 --stop-address=0x9a40
+./dust_noob
+./dust_intermediate
+./dust_pro
+echo "hello" | ./dust_intermediate
+echo "1234" | ./dust_pro
+./dust_intermediate < /dev/null
+python3 solve_dust_noob.py
+
+```
 ## Flag: 
+dust_noob :DawgCTF{FR33_C4R_W45H!}
+
+dust_intermediate :(win condition message, no flag embedded)
+
 
 ## Concepts Learnt: 
+Rust binary structure
 
+locating real logic in symbol tables
+
+extracting constant tables from stack writes
+
+XOR decoding
+
+Rust I/O behavior and failure paths
+
+numeric parsing 
+
+bitwise algorithm recognition
 ## Notes:
 
 ## Resources: 
+Ghidra
 
+GNU objdump, nm, strings
+
+Rust Book – Error Handling, Parsing, Byte Operations
+
+PicoCTF RE Resources
