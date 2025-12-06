@@ -16,7 +16,7 @@ StegSeek 0.6 - https://github.com/RickdeJager/StegSeek
 
 psnova@FORBIDDEN-DIMENSION:/mnt/c/Users/chatu/OneDrive/Desktop/jtp2/challenge_files/forensics/hidenseek$ file sakamoto.jpg.out
 sakamoto.jpg.out: ASCII text
-mpsnova@FORBIDDEN-DIMENSION:/mnt/c/Users/chatu/OneDrive/Desktop/jtp2/challenge_files/forensics/hidenseek$ mv sakamoto.jpg.out sakamoto.txt
+psnova@FORBIDDEN-DIMENSION:/mnt/c/Users/chatu/OneDrive/Desktop/jtp2/challenge_files/forensics/hidenseek$ mv sakamoto.jpg.out sakamoto.txt
 
 ```
 
